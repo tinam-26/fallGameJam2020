@@ -7,6 +7,7 @@ public class move : MonoBehaviour
 {
     // Start is called before the first frame update
     public float speed;
+    public string mainScene;
     private Rigidbody2D rb2d; 
     private int roomTotal; 
     private float winScore; 
@@ -20,14 +21,26 @@ public class move : MonoBehaviour
         Debug.Log("nextScene");
         GameObject door1 = GameObject.Find("positiveDoor");
         GameObject door2 = GameObject.Find("negativeDoor");
+
         //go to random position
-        door1.transform.position = new Vector3(Random.Range(-6,6),Random.Range(-3,3),0);
-        door2.transform.position = new Vector3(Random.Range(-6,6),Random.Range(-3,3),0);
+        //rounding change as warmup
+        float nextSpotX = Random.Range(-6f, 6f);
+        nextSpotX -= Mathf.Abs(nextSpotX) % .5f * Mathf.Sign(nextSpotX);
+        float nextSpotY = Random.Range(-3.5f, 3.5f);
+        nextSpotY -= Mathf.Abs(nextSpotY) % .5f * Mathf.Sign(nextSpotY);
+        door1.transform.position = new Vector3(nextSpotX, nextSpotY, 0);
+        Debug.Log("nextSpotX: " + nextSpotX + ", nextSpotY: " + nextSpotY);
+
+        nextSpotX = Random.Range(-6f, 6f);
+        nextSpotX -= Mathf.Abs(nextSpotX % .5f);
+        nextSpotY = Random.Range(-3.5f, 3.5f);
+        nextSpotY -= Mathf.Abs(nextSpotY % .5f);
+        door2.transform.position = new Vector3(nextSpotX, nextSpotY, 0);
 
         if(winScore >= 5){ 
             //player won
             Debug.Log("Player Won");
-            SceneManager.LoadScene("mainScene"); //update to win 
+            SceneManager.LoadScene(mainScene); //update to win 
         }
     }
     // Update is called once per frame
@@ -47,10 +60,10 @@ public class move : MonoBehaviour
             Debug.Log("collide2");
             winScore += 1;
             //handle random here
-            SceneManager.LoadScene("mainScene");
+            SceneManager.LoadScene(mainScene);
         }else if(other.gameObject.tag == "negRoom"){
             winScore -= 1;
-            SceneManager.LoadScene("mainScene");
+            SceneManager.LoadScene(mainScene);
         }else if(other.gameObject.tag == "goRoom"){
             
         }

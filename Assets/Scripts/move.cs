@@ -8,6 +8,9 @@ public class move : MonoBehaviour
     // Start is called before the first frame update
     public float speed;
     public string mainScene;
+    public string currentScene;
+    public string nextScene;
+    public string failScene;
     private Rigidbody2D rb2d; 
     private int roomTotal; 
     private float winScore; 
@@ -19,6 +22,7 @@ public class move : MonoBehaviour
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode){
         Debug.Log("nextScene");
+        /*
         GameObject door1 = GameObject.Find("positiveDoor");
         GameObject door2 = GameObject.Find("negativeDoor");
 
@@ -35,7 +39,7 @@ public class move : MonoBehaviour
         nextSpotX -= Mathf.Abs(nextSpotX % .5f);
         nextSpotY = Random.Range(-3.5f, 3.5f);
         nextSpotY -= Mathf.Abs(nextSpotY % .5f);
-        door2.transform.position = new Vector3(nextSpotX, nextSpotY, 0);
+        door2.transform.position = new Vector3(nextSpotX, nextSpotY, 0); /**/
 
         if(winScore >= 5){ 
             //player won

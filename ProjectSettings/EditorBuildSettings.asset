@@ -11,4 +11,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/goodScene.unity
     guid: 79fa292ced34c3d4683cb43fa8689208
+  - enabled: 1
+    path: Assets/Scenes/winSceneT.unity
+    guid: 88d8e58c815785e4e83341daa4912f7f
   m_configObjects: {}

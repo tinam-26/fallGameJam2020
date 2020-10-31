@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
-public class NewBehaviourScript : MonoBehaviour
+public class buttonHandler : MonoBehaviour
 {
-    public string mainScene;
     // Start is called before the first frame update
+    public string mainScene;
     void Start()
     {
         
@@ -18,7 +19,8 @@ public class NewBehaviourScript : MonoBehaviour
         
     }
 
-    void onClick(){
-        SceneManager.LoadScene("mainScene");
+    public void onClick(){
+        Debug.Log("I HAVE RUN");
+        SceneManager.LoadScene(mainScene);
     }
 }

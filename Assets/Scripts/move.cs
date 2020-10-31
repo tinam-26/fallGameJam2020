@@ -64,7 +64,7 @@ public class move : MonoBehaviour
             Debug.Log("collide2");
             winScore += 1;
             //handle random here
-            SceneManager.LoadScene(mainScene);
+            SceneManager.LoadScene(nextScene);
         }else if(other.gameObject.tag == "negRoom"){
             winScore -= 1;
             SceneManager.LoadScene(mainScene);

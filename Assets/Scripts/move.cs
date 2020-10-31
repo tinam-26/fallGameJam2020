@@ -22,24 +22,6 @@ public class move : MonoBehaviour
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode){
         Debug.Log("nextScene");
-        /*
-        GameObject door1 = GameObject.Find("positiveDoor");
-        GameObject door2 = GameObject.Find("negativeDoor");
-
-        //go to random position
-        //rounding change as warmup
-        float nextSpotX = Random.Range(-6f, 6f);
-        nextSpotX -= Mathf.Abs(nextSpotX) % .5f * Mathf.Sign(nextSpotX);
-        float nextSpotY = Random.Range(-3.5f, 3.5f);
-        nextSpotY -= Mathf.Abs(nextSpotY) % .5f * Mathf.Sign(nextSpotY);
-        door1.transform.position = new Vector3(nextSpotX, nextSpotY, 0);
-        Debug.Log("nextSpotX: " + nextSpotX + ", nextSpotY: " + nextSpotY);
-
-        nextSpotX = Random.Range(-6f, 6f);
-        nextSpotX -= Mathf.Abs(nextSpotX % .5f);
-        nextSpotY = Random.Range(-3.5f, 3.5f);
-        nextSpotY -= Mathf.Abs(nextSpotY % .5f);
-        door2.transform.position = new Vector3(nextSpotX, nextSpotY, 0); /**/
 
         if(winScore >= 5){ 
             //player won

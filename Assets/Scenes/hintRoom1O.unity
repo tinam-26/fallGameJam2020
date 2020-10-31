@@ -3877,7 +3877,7 @@ MonoBehaviour:
   mainScene: mainSceneO
   currentScene: hintRoom1O
   nextScene: hintRoom2O
-  failScene: mainSceneO
+  failScene: loseSceneT
 --- !u!50 &2144093419
 Rigidbody2D:
   serializedVersion: 4

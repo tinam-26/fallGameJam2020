@@ -61,13 +61,12 @@ public class move : MonoBehaviour
     void OnCollisionEnter2D(Collision2D other) {
         Debug.Log("collide");
         if(other.gameObject.tag == "posRoom"){
-            Debug.Log("collide2");
             winScore += 1;
             //handle random here
             SceneManager.LoadScene(nextScene);
         }else if(other.gameObject.tag == "negRoom"){
             winScore -= 1;
-            SceneManager.LoadScene(mainScene);
+            SceneManager.LoadScene(failScene);
         }else if(other.gameObject.tag == "goRoom"){
             
         }

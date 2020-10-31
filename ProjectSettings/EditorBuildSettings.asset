@@ -12,12 +12,6 @@ EditorBuildSettings:
     path: Assets/Scenes/goodScene.unity
     guid: 79fa292ced34c3d4683cb43fa8689208
   - enabled: 1
-    path: Assets/Scenes/hintRoom1O.unity
-    guid: 7780eac0d2367e54a9efff31a8ffa283
-  - enabled: 1
-    path: Assets/Scenes/hintRoom2O.unity
-    guid: db237e79f2a42784d8273f2b37a51254
-  - enabled: 1
-    path: Assets/Scenes/mainSceneO.unity
-    guid: f6e7254cfa74d29418103d19740d2ddc
+    path: Assets/Scenes/winSceneT.unity
+    guid: 88d8e58c815785e4e83341daa4912f7f
   m_configObjects: {}

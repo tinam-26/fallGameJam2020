@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HintRoom1 : MonoBehaviour
+public class HintRoom2 : MonoBehaviour
 {
-    public GameObject[] hints;
+    public SpriteRenderer[] hints;
+    public Color[] colors;
     public GameObject[] doors;
 
     private int correctDir;
@@ -12,10 +13,20 @@ public class HintRoom1 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //correctDir selects the correct direction to move in, 0 for left, 1 for up, 2 for right and 3 for down
-        correctDir = Random.Range(0, 4);
+        //correctDir selects the correct direction to move in, 0 for right, 1 for down, 2 for left and 3 for up
+        int[] shuffler = { 0, 1, 2, 3 };
+        shuffler = Shuffle(shuffler);
 
-        hints[correctDir].SetActive(false);
+        for (int i = 0; i < shuffler.Length; i++)
+        {
+            if (shuffler[i] == 0)
+            {
+                correctDir = i;
+            }
+            hints[i].color = colors[shuffler[i]];
+        }
+
+        //hints[correctDir].SetActive(false);
 
         for (int i = 0; i < doors.Length; i++)
         {
@@ -33,6 +44,56 @@ public class HintRoom1 : MonoBehaviour
         switch (correctDir)
         {
             case 0:
+                float biggestX = doors[0].transform.position.x;
+
+                for (int i = 1; i < doors.Length; i++)
+                {
+                    if (doors[i].transform.position.x > biggestX)
+                    {
+                        biggestX = doors[i].transform.position.x;
+                        next = i;
+                    }
+                    else if (doors[i].transform.position.x == biggestX)
+                    {
+                        Vector2 nextPos = new Vector2(doors[i].transform.position.x - .5f, doors[i].transform.position.y);
+                        doors[i].transform.position = nextPos;
+                    }
+                }
+
+                if (next != 0)
+                {
+                    Vector2 origPos = new Vector2(doors[0].transform.position.x, doors[0].transform.position.y);
+                    doors[0].transform.position = doors[next].transform.position;
+                    doors[next].transform.position = origPos;
+                }
+                break;
+
+            case 1:
+                float smallestY = doors[0].transform.position.x;
+
+                for (int i = 1; i < doors.Length; i++)
+                {
+                    if (doors[i].transform.position.x < smallestY)
+                    {
+                        smallestY = doors[i].transform.position.y;
+                        next = i;
+                    }
+                    else if (doors[i].transform.position.y == smallestY)
+                    {
+                        Vector2 nextPos = new Vector2(doors[i].transform.position.x, doors[i].transform.position.y + .5f);
+                        doors[i].transform.position = nextPos;
+                    }
+                }
+
+                if (next != 0)
+                {
+                    Vector2 origPos = new Vector2(doors[0].transform.position.x, doors[0].transform.position.y);
+                    doors[0].transform.position = doors[next].transform.position;
+                    doors[next].transform.position = origPos;
+                }
+                break;
+
+            case 2:
                 float smallestX = doors[0].transform.position.x;
 
                 for (int i = 1; i < doors.Length; i++)
@@ -58,7 +119,7 @@ public class HintRoom1 : MonoBehaviour
                 }
                 break;
 
-            case 1:
+            case 3:
                 float biggestY = doors[0].transform.position.y;
 
                 for (int i = 1; i < doors.Length; i++)
@@ -82,56 +143,6 @@ public class HintRoom1 : MonoBehaviour
                     doors[next].transform.position = origPos;
                 }
                 break;
-
-            case 2:
-                float biggestX = doors[0].transform.position.x;
-
-                for (int i = 1; i < doors.Length; i++)
-                {
-                    if (doors[i].transform.position.x > biggestX)
-                    {
-                        biggestX = doors[i].transform.position.x;
-                        next = i;
-                    }
-                    else if (doors[i].transform.position.x == biggestX)
-                    {
-                        Vector2 nextPos = new Vector2(doors[i].transform.position.x - .5f, doors[i].transform.position.y);
-                        doors[i].transform.position = nextPos;
-                    }
-                }
-
-                if (next != 0)
-                {
-                    Vector2 origPos = new Vector2(doors[0].transform.position.x, doors[0].transform.position.y);
-                    doors[0].transform.position = doors[next].transform.position;
-                    doors[next].transform.position = origPos;
-                }
-                break;
-
-            case 3:
-                float smallestY = doors[0].transform.position.x;
-
-                for (int i = 1; i < doors.Length; i++)
-                {
-                    if (doors[i].transform.position.x < smallestY)
-                    {
-                        smallestY = doors[i].transform.position.y;
-                        next = i;
-                    }
-                    else if (doors[i].transform.position.y == smallestY)
-                    {
-                        Vector2 nextPos = new Vector2(doors[i].transform.position.x, doors[i].transform.position.y + .5f);
-                        doors[i].transform.position = nextPos;
-                    }
-                }
-
-                if (next != 0)
-                {
-                    Vector2 origPos = new Vector2(doors[0].transform.position.x, doors[0].transform.position.y);
-                    doors[0].transform.position = doors[next].transform.position;
-                    doors[next].transform.position = origPos;
-                }
-                break;
         }
     }
 
@@ -139,5 +150,24 @@ public class HintRoom1 : MonoBehaviour
     void Update()
     {
         
+    }
+
+    private int[] Shuffle(int[] s)
+    {
+        //just shuffle the array 100 times
+        for (int i = 0; i < 100; i++)
+        {
+            for (int j = 1; j < s.Length; j++)
+            {
+                if (Random.Range(-1f, 1f) > 0)
+                {
+                    int tempInt = s[j - 1];
+                    s[j - 1] = s[j];
+                    s[j] = tempInt;
+                }
+            }
+        }
+
+        return s;
     }
 }

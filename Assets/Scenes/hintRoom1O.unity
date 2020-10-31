@@ -3873,7 +3873,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5694d6548a245ee47b978970cf843c9d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 5
   mainScene: mainSceneO
   currentScene: hintRoom1O
   nextScene: hintRoom2O

@@ -9,7 +9,7 @@ public class HintRoom4T : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-    
+        
         for (int i = 0; i < doors.Length; i++)
         {
             float nextSpotX = Random.Range(-6f, 6f);

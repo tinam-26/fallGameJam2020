@@ -27,6 +27,8 @@ public class HintRoom1 : MonoBehaviour
             doors[i].transform.position = new Vector3(nextSpotX, nextSpotY, 0);
         }
 
+        
+
         //TODO figure out which door was spawned at the top/left/ectmost location and switch locations with the correct door
         //0 for left, 1 for up, 2 for right and 3 for down
         int next = 0;

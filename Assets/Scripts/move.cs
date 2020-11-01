@@ -22,7 +22,7 @@ public class move : MonoBehaviour
 
     void OnSceneLoaded(Scene scene, LoadSceneMode mode){
         Debug.Log("nextScene");
-
+        
         if(winScore >= 5){ 
             //player won
             Debug.Log("Player Won");
@@ -32,6 +32,7 @@ public class move : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        GameObject.FindGameObjectWithTag("music").GetComponent<musicHandler>().playMusic();
         float horz = Input.GetAxis("Horizontal");
         float vert = Input.GetAxis("Vertical");
 

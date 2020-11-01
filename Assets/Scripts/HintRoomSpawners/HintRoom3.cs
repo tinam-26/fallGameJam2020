@@ -11,7 +11,7 @@ public class HintRoom3 : MonoBehaviour
     void Start()
     {
 
-
+        
         for (int i = 0; i < doors.Length; i++)
         {
             float nextSpotX = Random.Range(-6f, 6f);

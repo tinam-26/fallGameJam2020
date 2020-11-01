@@ -13,6 +13,7 @@ public class HintRoom2 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         //correctDir selects the correct direction to move in, 0 for right, 1 for down, 2 for left and 3 for up
         int[] shuffler = { 0, 1, 2, 3 };
         shuffler = Shuffle(shuffler);

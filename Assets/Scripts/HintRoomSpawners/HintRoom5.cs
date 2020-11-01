@@ -10,6 +10,7 @@ public class HintRoom5 : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         ShufflePositions(doors);
         Debug.Log(doors.Length);
 

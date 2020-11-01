@@ -4096,7 +4096,7 @@ MonoBehaviour:
   speed: 5
   mainScene: mainSceneO
   currentScene: hintRoom3O
-  nextScene: winSceneT
+  nextScene: hintRoom4T
   failScene: loseSceneT
 --- !u!50 &2144093419
 Rigidbody2D:

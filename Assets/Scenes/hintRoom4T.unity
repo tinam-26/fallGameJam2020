@@ -819,8 +819,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   mainScene: mainSceneO
-  currentScene: hintRoom3O
-  nextScene: winSceneT
+  currentScene: hintRoom4T
+  nextScene: hintRoom5O
   failScene: loseSceneT
 --- !u!50 &880723252
 Rigidbody2D:
